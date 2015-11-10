@@ -1,4 +1,5 @@
 import pygame
+import pickle
 
 DISPLAY_WIDTH = 800
 DISPLAY_HEIGHT = 600
@@ -52,6 +53,11 @@ class Tile(object):
 
 graph = Graph(rows=60, columns=80)
 graph.make_graph()
+
+
+with open("savegame", "rb") as f:
+    graph = pickle.load(f)
+
 
 while not game_exit:
     for row in range(graph.rows):
@@ -115,5 +121,9 @@ while not game_exit:
 
     clock.tick(60)
     pygame.display.flip()
+
+with open("savegame", "wb") as f:
+    pickle.dump(graph, f)
+
 print graph.grid
 pygame.quit()
