@@ -55,8 +55,8 @@ graph = Graph(rows=60, columns=80)
 graph.make_graph()
 
 
-with open("savegame", "rb") as f:
-    graph = pickle.load(f)
+# with open("savegame", "rb") as f:
+#     graph = pickle.load(f)
 
 
 while not game_exit:
@@ -122,8 +122,8 @@ while not game_exit:
     clock.tick(60)
     pygame.display.flip()
 
-with open("savegame", "wb") as f:
-    pickle.dump(graph, f)
+# with open("savegame", "wb") as f:
+#     pickle.dump(graph, f)
 
 print graph.grid
 pygame.quit()
