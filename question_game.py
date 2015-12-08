@@ -44,9 +44,9 @@ def main():
     background1 = Background("This is the image path")
     scene1 = Scene(scene_1_bank, background1)
 
-    """ Scene1.update(Questions) calls the Scene1 method '.update'
-    It is passed the 'Questions' instantiation as the 'question_bank' argument
-    so that it has access to the data stored in 'Questions'.  In this case,
+    """ scene1.update(scene_1_bank) calls the Scene1 method '.update'
+    It is passed the 'scene_1_bank' instantiation as the 'question_bank' argument
+    so that it has access to the data stored in 'scene_1_bank'.  In this case,
     that is how Scene1 'updates' the question."""
     scene1.update(scene_1_bank)
 
