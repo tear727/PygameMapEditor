@@ -74,7 +74,7 @@ def main():
 
     """
     Ready for the easiest "challenge" of your life? Try and print the 'background'
-    variables value by accessing it THROUGH scene1.  It's super easy... I
+    variable's value by accessing it THROUGH scene1.  It's super easy... I
     basically showed you how.  If you do it then you will see the relationships
     being made between the Scene()class and Background class.
 
