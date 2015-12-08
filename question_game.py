@@ -15,7 +15,6 @@ class Background(object):
 class Scene(object):
     def __init__(self,question_bank, background):
         self.question = question_bank.default_question
-        self.answered = False
         self.answer = raw_input(self.question)
         self.background = background
 
