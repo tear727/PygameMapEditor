@@ -64,7 +64,7 @@ def main():
     If you wanted the scene2 object to have DIFFERENT QUESTIONS than the scene1 object,
     you could ONLY achieve this if you get rid of the hard coded questions in the
     scene_1_bank object or if you made the scene_2_bank object and then OVERRIDE
-    the question variables b ysetting them to new questions manually.
+    the question variables by setting them to new questions manually.
     THAT IS BAD DESIGN.
 
     There is a better way to do all this and that involves using data structures
