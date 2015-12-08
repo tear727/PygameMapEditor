@@ -64,9 +64,9 @@ def main():
     The scene2 object would perhaps have a new background.  But, if you wanted
     the scene2 object to have DIFFERENT QUESTIONS than the scene1 object,
     you could ONLY achieve this if you get rid of the hard coded questions in the
-    scene_1_bank object or if you made the scene_2_bank object INHERIT from
-    QuestionBank() as a base class, and then OVERRIDE the question variable by
-    setting them to something else.
+    scene_1_bank object or if you made the scene_2_bank object and then OVERRIDE
+    the question variables b ysetting them to new questions manually.
+    THAT IS BAD DESIGN.
 
     There is a better way to do all this and that involves using data structures
     to hold data."""
@@ -77,7 +77,7 @@ def main():
     variables value by accessing it THROUGH scene1.  It's super easy... I
     basically showed you how.  If you do it then you will see the relationships
     being made between the Scene()class and Background class.
-    
+
     Hint: use '.' notation... lol
 
     The output in your terminal should be: This is the image path
