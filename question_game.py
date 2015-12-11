@@ -1,3 +1,13 @@
+import pygame
+import os
+
+
+
+WINDOW_HEIGHT = 800
+WINDOW_WIDTH = 600
+SCREEN = (WINDOW_HEIGHT, WINDOW_WIDTH)
+
+
 class QuestionBank(object):
     def __init__(self):
         self.question1 = "question 1?"
@@ -10,25 +20,27 @@ class QuestionBank(object):
 class Background(object):
     def __init__(self, path_to_image):
         self.background_image = path_to_image
+        if self.background_image != None:
+            self.loaded_bg = pygame.image.load(self.background_image)
 
 
 class Scene(object):
     def __init__(self,question_bank, background):
         self.question = question_bank.default_question
-        self.answer = raw_input(self.question)
         self.background = background
 
     def update(self, question_bank):
-        if self.answer == "a":
+        answer = raw_input(self.question)
+        if answer == "a":
             self.question = question_bank.question2
             print self.question
-        elif self.answer == "b":
+        elif answer == "b":
             self.question = question_bank.question3
             print self.question
-        elif self.answer == "c":
+        elif answer == "c":
             self.question = question_bank.question3
             print self.question
-        elif self.answer == "d":
+        # elif answer == "d":
             self.question = question_bank.question4
             print self.question
         else:
@@ -36,19 +48,23 @@ class Scene(object):
 
 
 def main():
+    pygame.init()
+    screen = pygame.display.set_mode(SCREEN)
+    game_exit = False
+
     """ Below are the instantiations of classess.  They are the actual objects.
     Classes alone are only 'object factories' and need to have corresponding
     instantiations to be used! """
 
     scene_1_bank = QuestionBank()
-    background1 = Background("This is the image path")
-    scene1 = Scene(scene_1_bank, background1)
+    background1 = Background("poro.png")
+    scene1 = Scene(scene_1_bank, background1.loaded_bg)
 
     """ scene1.update(scene_1_bank) calls the Scene1 method '.update'
     It is passed the 'scene_1_bank' instantiation as the 'question_bank' argument
     so that it has access to the data stored in 'scene_1_bank'.  In this case,
     that is how Scene1 'updates' the question."""
-    scene1.update(scene_1_bank)
+
 
     """In reality, this is a poor example of a question game engine because
     it does not fully support modularity of classes.  In other words, it could
@@ -81,6 +97,8 @@ def main():
 
     The output in your terminal should be: This is the image path
     """
+    scene1.update(scene_1_bank)
+
 
 
 main()
