@@ -1,5 +1,5 @@
 import pygame
-import pickle
+import cPickle
 import os
 
 DISPLAY_WIDTH = 800
@@ -67,7 +67,7 @@ graph.make_graph()
 
 def save(arg):
     with open("savegame", "wb") as f:
-        pickle.dump(arg, f)
+        cPickle.dump(arg, f)
         print "file saved"
 
 def delete_save():
@@ -81,7 +81,7 @@ def delete_save():
 
 if os.path.exists("savegame"):
     with open("savegame", "rb") as f:
-        graph = pickle.load(f)
+        graph = cPickle.load(f)
 screen.fill(WHITE)
 
 while not game_exit:
