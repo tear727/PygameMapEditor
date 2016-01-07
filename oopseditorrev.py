@@ -182,14 +182,6 @@ def paused(pause):
                     pause = False
         clock.tick(60)
 
-controller = Controller("controller1")
-graph = Graph(rows=60, columns=80)
-graph.make_graph()
-print graph.graph_shift_x
-
-tile_group = pygame.sprite.Group()
-
-
 
 def save(arg):
     with open("savegame", "wb") as f:
@@ -212,6 +204,12 @@ try:
 except:
     EOFError()
 
+"""Instantiations"""
+
+controller = Controller("controller1")
+graph = Graph(rows=60, columns=80)
+graph.make_graph()
+print graph.graph_shift_x
 print graph.grid
 
 while not game_exit:
