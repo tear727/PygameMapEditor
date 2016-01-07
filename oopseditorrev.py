@@ -52,6 +52,7 @@ class Controller(object):
         self.mouse_y = self.mouse_pos[1]
 
     def shift_mouse(self, shift_x, shift_y):
+        "Handles mouse shift"
         self.mouse_x += shift_x
         self.mouse_y += shift_y
         print self.mouse_x, self.mouse_y
@@ -138,11 +139,6 @@ class Graph(object):
                     tile = Tile(width=TILE_WIDTH, height=TILE_HEIGHT, color=color)
                 screen.blit(tile.image, ((TILE_WIDTH*column)+self.graph_shift_x,(TILE_HEIGHT*row)+self.graph_shift_y))
 
-            # if controller.mouse_y < 220:
-            #     print "mouse_y less than 220"
-            # if controller.mouse_x < 30:
-            #     print "mouse_x is less than 30"
-
     def make_graph(self):
         for rows in range(self.rows):
             self.grid.append([])
@@ -151,6 +147,7 @@ class Graph(object):
         return self.grid
 
     def shift_graph(self, shift_x, shift_y):
+        "Shifts graph"
         self.graph_shift_x += shift_x
         self.graph_shift_y += shift_y
 
@@ -173,12 +170,6 @@ class Tile(Entity):
         self.image.convert()
         self.rect = self.image.get_rect()
         self.solid = solid
-        self.tile_shift_x = 0
-        self.tile_shift_y = 0
-
-    def shift_tiles(self, shift_x, shift_y):
-        self.tile_shift_x += shift_x
-        self.tile_shift_y += shift_y
 
 
 def paused(pause):
@@ -220,9 +211,6 @@ try:
 			graph = cPickle.load(f)
 except:
     EOFError()
-    ReferenceError()
-    MemoryError()
-
 
 print graph.grid
 
@@ -235,8 +223,7 @@ while not game_exit:
         diff = controller.mouse_x - 700
         #print diff, "mouse_x greater than 700"
         graph.shift_graph(-diff, 0)
-        # controller.shift_mouse(diff, 0)
-        # tile.shift_tiles(diff, 0)
+        #controller.shift_mouse(diff, 0)
     if controller.mouse_x < 30:
         diff = 30 - controller.mouse_x
         #print diff, "mouse_x less than 30"
