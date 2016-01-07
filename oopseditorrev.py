@@ -221,7 +221,7 @@ while not game_exit:
         diff = controller.mouse_x - 700
         #print diff, "mouse_x greater than 700"
         graph.shift_graph(-diff, 0)
-        #controller.shift_mouse(diff, 0)
+        #controller.shift_mouse(-diff, 0)
     if controller.mouse_x < 30:
         diff = 30 - controller.mouse_x
         #print diff, "mouse_x less than 30"
@@ -231,12 +231,12 @@ while not game_exit:
         diff = controller.mouse_y - 700
         #print diff, "mouse_y greater than 700"
         graph.shift_graph(0, -diff)
-        # controller.shift_mouse(0, diff)
+        # controller.shift_mouse(0, -diff)
     if controller.mouse_y < 30:
         diff = 30 - controller.mouse_y
         #print diff, "mouse_y less than 30"
         graph.shift_graph(0, diff)
-        # controller.shift_mouse(0, -diff)
+        # controller.shift_mouse(0, diff)
 
 
 
